@@ -1,0 +1,28 @@
+﻿@model LegoasAssignment.Models.ViewModels.LoginViewModel
+
+@{
+}
+
+<div class="col-md-6 offset-md-3">
+    <h1>Login</h1>
+    <form asp-action="Login" method="post" class="mt-5">
+        <div class="mb-3">
+            <label asp-for="Username" class="form-label"><b>Username</b></label>
+            <input type="text" class="form-control" asp-for="Username" placeholder="Enter Username">
+            <span class="text-danger" asp-validation-for="Username"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Password" class="form-label"><b>Password</b></label>
+            <input type="password" class="form-control" asp-for="Password" placeholder="Enter Password">
+            <span class="text-danger" asp-validation-for="Password"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button>
+        <a class="btn btn-secondary" href="/Users/Add">Register</a>
+    </form>
+</div>
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+    }

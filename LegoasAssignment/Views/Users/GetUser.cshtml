@@ -1,0 +1,89 @@
+﻿@model LegoasAssignment.Models.ViewModels.UpdateUserViewModel
+
+@{
+}
+
+<div class="col-md-6 offset-md-3">
+    <h1>Update User</h1>
+    <form method="post" asp-action="GetUser" class="mt-5">
+        <div class="mb-3">
+            <label for="Id" class="form-label">Id</label>
+            <input type="text" class="form-control" asp-for="Id" readonly>
+        </div>
+        <div class="mb-3">
+            <label for="Fullname" class="form-label">Fullname</label>
+            <input type="text" class="form-control" asp-for="Fullname" placeholder="Enter Fullname">
+            <div class="msg">
+                <span class="err" asp-validation-for="Fullname"></span>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="Username" class="form-label">Username</label>
+            <input type="text" class="form-control" asp-for="Username" placeholder="Enter Username">
+            <div class="msg">
+                <span class="err" asp-validation-for="Username"></span>
+            </div>
+
+        </div>
+        <div class="mb-3">
+            <label for="Address" class="form-label">Address</label>
+            <input type="text" class="form-control" asp-for="Address" placeholder="Enter Address">
+        </div>
+        <div class="mb-3">
+            <label for="ZipCode" class="form-label">Zip Code</label>
+            <input type="text" class="form-control" asp-for="ZipCode" placeholder="Enter Zip Code">
+        </div>
+        <div class="mb-3">
+            <label for="Province" class="form-label">Province</label>
+            <input type="text" class="form-control" asp-for="Province" placeholder="Enter Province">
+        </div>
+        @*<div class="mb-3">
+        <label class="form-label">Select Branch</label>
+        <select class="form-select" asp-items="Model.BranchesSelectList"></select>
+        </div>*@
+        <div class="mb-3">
+            <label for="CurrentPassword" class="form-label">Current Password</label>
+            <input type="password" class="form-control" asp-for="CurrentPassword" placeholder="Enter Current Password">
+            <div class="msg">
+                <span asp-validation-for="CurrentPassword" class="err"></span>
+            </div>
+
+            @if (TempData["msg"] != null)
+            {
+                <div class="err">@TempData["msg"]</div>
+            }
+        </div>
+        <div class="mb-3">
+            <label for="NewPassword" class="form-label">New Password</label>
+            <input type="password" class="form-control" asp-for="NewPassword" placeholder="Enter New Password">
+            <div class="msg">
+                <span asp-validation-for="NewPassword" class="err"></span>
+            </div>
+
+            @if (TempData["msg"] != null)
+            {
+                <div class="err">@TempData["msg"]</div>
+            }
+        </div>
+        <div class="mb-3">
+            <label for="ConfirmPassword" class="form-label">Confirm Password</label>
+            <input type="password" class="form-control" asp-for="ConfirmPassword" placeholder="Re-enter Password">
+            <div class="msg">
+                <span asp-validation-for="ConfirmPassword" class="err"></span>
+            </div>
+
+            @if (TempData["msg"] != null)
+            {
+                <div class="err">@TempData["msg"]</div>
+            }
+        </div>
+        <button type="submit" class="btn btn-primary">Update</button>
+        <a class="btn btn-secondary" href="/Users/GetUsers">Back</a>
+    </form>
+</div>
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+    }
